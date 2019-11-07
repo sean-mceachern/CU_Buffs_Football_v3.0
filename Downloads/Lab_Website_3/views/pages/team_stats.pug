@@ -1,0 +1,51 @@
+//- team_stats.pug
+include ../partials/header.pug
+include ../partials/menu.pug
+
+div.container
+  br
+  div.jumbotron
+    h1.display-4 Fall 2018 Stats
+    p.lead CU Football Statistics for the 2018 Football Season!
+
+  table.table.table-bordered#stats_table
+    tr
+      th.align-bottom(rowspan="2") Game Date
+      th.align-bottom(rowspan="2") Opposing Team Name
+      th.text-center(colspan="2") Score
+      th.align-bottom(rowspan="2") Winner
+    tr
+      th Home Score
+      th Opp. Score
+
+    if(games)
+
+      for item in games
+        tr
+          td=item.game_date       
+          td=item.visitor_name   
+          td=item.home_score      
+          td=item.visitor_score
+          if (item.home_score > item.visitor_score)
+            td CU Boulder
+          else
+            td=item.visitor_name
+    
+
+
+  br
+
+  table.table.text-center
+    tr
+      th Wins        
+      th Losses
+    
+    td #{games_won}
+    td #{games_lost}
+        
+      //- else
+      //-   td 0 
+      //- TODO: Display the total number of wins here. This value should come from your server-side db query.
+      //- TODO: Display the total number of losses here. This value should come from your server-side db query.
+
+include ../partials/footer.pug
