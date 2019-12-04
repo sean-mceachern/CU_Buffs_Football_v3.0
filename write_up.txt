@@ -1,5 +1,5 @@
 Sean McEachern
 
-https://github.com/sean-mceachern/Lab_Website_3/tree/master/Downloads/Lab_Website_3
+https://github.com/sean-mceachern/Lab_Website_3
 
 Worked with Collin Jones for part 3 and some of part 4 of this assignment.
