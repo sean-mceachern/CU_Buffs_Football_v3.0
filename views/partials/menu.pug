@@ -1,0 +1,16 @@
+//- menu.pug
+  nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+    a.navbar-brand(href="home.html")
+      img.rounded-circle(src="../resources/img/cu_boulder_logo.jpg", alt="CU Boulder logo", width="30", height="30")
+    button.navbar-toggler(type="button", data-toggle="collapse", data-target="#navbarText", aria-controls="navbarText", aria-expanded="false", aria-label="Toggle navigation")
+      span.navbar-toggler-icon
+    div.collapse.navbar-collapse#navbarText
+      ul.navbar-nav.mr-auto
+        li.nav-item
+          a.nav-link(href="/home")
+        li.nav-item
+          a.nav-link(href="/team_stats") Season Stats
+        li.nav-item
+          a.nav-link(href="/player_info") Player Information
+      div.form-inline.my-2.my-lg-0
+         button.btn.btn-outline-light.my-2.my-sm-0(type="submit") Logout

@@ -1,0 +1,44 @@
+//- login.pug
+include ../partials/header.pug
+
+style(type="text/css").
+  .bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+  }
+  button {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  @media(min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
+
+form.form-signin
+  img.rounded-circle(src="../../resources/img/cu_boulder_logo.jpg", alt="", width="72", height="72")
+  h1.h3.mb-3.font-weight-normal Please sign in
+  label.sr-only(for="inputEmail") Email address
+  input.form-control#inputEmail(type="email", placeholder="Email address", required, autofocus, style="max-width: 300px; margin: auto;")
+  label.sr-only(for="inputPassword") Password
+  input.form-control#inputPassword(type="password", placeholder="Password", required, style="max-width: 300px; margin: auto;")
+  br
+  div.checkbox.mb-3
+    label Remember me | 
+      input(type="checkbox", value="remember-me")
+      a(href="") Forgot Password?
+  button.btn.btn-lg.btn-primary(type="submit") Sign in
+  a.btn.btn-lg.btn-primary(href="register") Register
+  p.mt-5.mb-3.text-muted &copy; 2017-2018
+
+  //- Because we now use partials for our header, we can't directly add Boostrap Classes to our Body tag. Below is a "work-around" to apply the Bootstrap classes when the page loads
+script(type="text/javascript").
+  function addCSSToBody() {
+    document.body.classList.add("center");
+    document.body.classList.add("text-center");
+  }
+  window.onload = addCSSToBody;
+
+include ../partials/footer.pug

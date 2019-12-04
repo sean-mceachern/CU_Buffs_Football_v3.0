@@ -1,0 +1,71 @@
+//- register.pug
+include ../partials/header.pug
+
+img(src="../../resources/img/beproudcapaabanner.jpg", class="img-fluid", alt="Registration Page Banner for CU Football")
+br
+br
+div.container
+  form(action="home")
+    div.form-group.row
+      label.col-sm-2.col-form-lable(for="fullName") Full Name
+      div.col-sm-10
+        input.form-control#fullName(type="text", name="fullName", placeholder="Enter name")
+    div.form-group.row
+      label.col-sm-2.col-form-label(for="emailAddress") Email Address
+      div.col-sm-10
+        input.form-control#emailAddress(type="email", name="emailAddress", placeholder="Enter email")
+    div.form-group.row
+      label.col-sm-2.col-form-label(for="passwordFirst") Password
+      div.col-sm-10
+        input.form-control#passwordFirst(type="password", name="passwordFirst", placeholder="Enter password")
+    div.form-group.row
+      label.col-sm-2.col-form-label(for="passwordConfirm") Confirm Password
+      div.col-sm-10
+        input.form-control#passwordConfirm(type="password", name="passwordConfirm", placeholder="Confirm password")
+    fieldset.form-group
+      div.row
+        legend.col-form-label-col-sm-2.pt-0 CU Boulder Alumni
+        div.col-sm-10
+          div.form-check
+            input.form-check-input#alumniStatusYes(type="radio", name="alumniStatus", value="Yes", required)
+            label.form-check-label(for="alumniStatusYes") Yes
+          div.form-check
+            input.form-check-input#alumniStatusNo(type="radio", name="alumniStatus", value="no")
+            label.form-check-label(for="alumniStatusNo") No
+    fieldset.form-group
+      div.row
+        legend.col-form-label.col-sm-2.pt-0 CU Boulder Student
+        div.col-sm-10
+          div.form-check
+            input.form-check-input#studentStatusYes(type="radio", name="studentStatus", value="Yes", required, onclick="viewStudentStats('student_status', 1)")
+            label.form-check-label(for="studentStatusYes") Yes
+          div.form-check
+            input.form-check-input#studentStatusNo(type="radio", name="studentStatus", value="No", onclick="viewStudentStats('student_status', 0);viewStudentStats('undergrad_select', 0);viewStudentStats('grad_select', 0);")
+            label.form-check-label(for="studentStatusNo") No
+      div.row#student_status
+        legend.col-form-label.col-sm-2.pt-0 Student Status
+        div.col-sm-10
+          div.form-check
+            input.form-check-input#undergrad(type="radio", name="student_type", value="U", onclick="viewStudentStats('undergrad_select', 1);viewStudentStats('grad_select', 0);")
+            label.form-check-label(for="undergrad") Undergrad
+          select.custom-select.custom-select-sm#undergrad_select(name="undergrad_level")
+            option(selected) Select Student Status
+            option(value="1") Freshman
+            option(value="2") Sophomore
+            option(value="3") Junior
+            option(value="4") Senior
+          div.form-check
+            input.form-check-input#graduate(type="radio", name="student_type", value="G", checked, onclick="viewStudentStats('undergrad_select', 0);viewStudentStats('grad_select', 1);")
+            label.form-check-label(for="grad") Grad
+          select.custom-select.custom-select-sm#grad-select(name="grad_level")
+            option(selected) Select Student Status
+            option(value="1") Masters
+            option(value="2") MBA
+            option(value="3") PhD
+
+
+
+    input.btn.btn-primary.btn-block(type="submit" value="submit")
+    br
+
+include ../partials/footer.pug

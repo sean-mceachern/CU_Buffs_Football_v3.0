@@ -1,0 +1,44 @@
+//- player-info.pug
+include ../partials/header.pug
+include ../partials/menu.pug
+
+div.container
+  br
+  div.row
+    div.col-4
+      div.card
+        //- TODO: Modify the pug code below to conditionally set the image_src
+        - let image_src = '../../resources/img/helmet.jpg'
+
+        img.card-img-top#player_img(src= image_src, alt="Football Player")
+        div.card-body.mx-auto
+          form.form(action="/player_info/post", method="get")
+            select.custom-select(name="player_choice", onchange="this.form.submit()")
+              option(selected) Select Player
+              if(player_data)
+                for item in player_data
+                  option()= value=item.name
+                    //- TODO: Populate the select with player options. Set the value to the player's id and display the player's name.
+    div.col-8
+      div.table-responsive
+        table.table
+          tr
+            th Year
+              td #{player_year}
+          tr
+            th Major
+              td #{player_major}
+          tr
+            th Games Played
+              td #{games_played}
+          tr
+            td Passing Yards: #{pass_yrd}
+            td Avg. Passing Yards: #{avg_pass}
+          tr
+            td Rushing Yards: #{rush_yrd}
+            td Avg. Rushing Yards: #{avg_rush}
+          tr
+            td Receiving Yards: #{rec_yrd}
+            td Avg. Receiving Yards: #{avg_rec}
+
+include ../partials/footer.pug
