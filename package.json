@@ -2,7 +2,7 @@
     "name": "football-site",
     "main": "server.js",
     "dependencies": {
-        "express": "^4.6.1",
+        "express": "^4.17.3",
         "pg-promise": "^9.3.3",
         "pug": "^2.0.4"
     }
